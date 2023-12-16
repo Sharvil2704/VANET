@@ -1,4 +1,4 @@
-## Intro and shit documentation for research paper
+## Intro and documentation for research paper
 
 ---
 
