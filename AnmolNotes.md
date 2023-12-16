@@ -1,3 +1,4 @@
+# Introduction to VANET
 Enhancing safety stands out as a paramount objective in Vehicular Ad Hoc Networks (VANETs) due to its potential to reduce accidents, thereby contributing to improved traffic conditions and the preservation of lives. Beyond safety concerns, VANETs offer a spectrum of services, including internet access, weather forecasts, and geo-location information, enriching the travel experience with comfort, convenience, and infotainment.
 
 Various committees are actively engaged in finalizing standards for VANETs, encompassing IEEE 1609.x, 802.11p, and Wireless Access in Vehicular Environment (WAVE). WAVE, structured as a layered architecture, enables devices compliant with IEEE 802.11 to operate in the Dedicated Short Range Communication (DSRC) band. The IEEE 1609 family delineates the architecture, protocol set, and interfaces, ensuring interoperability within the VANET environment, with a focus on message exchange security.
