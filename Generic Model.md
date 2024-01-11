@@ -18,7 +18,7 @@ Vehicle Registration:
 - RSU verification and PN registration: The RSU verifies proof of vehicle ownership and initiates a registration smart contract on the Blockchain Network (BN). The BN registers the pseudonym and generates a session key, which is securely communicated back to the vehicle.  
 
 Message Signing and Verification:  
-- Signature creation: The vehicle signs messages using its pseudonym and session key, employing the efficient and secure BLS signature scheme. 
+- Signature creation: The vehicle signs messages using its pseudonym and session key, employing the efficient and secure BLS signature scheme. BLS is used as it requires less computation power and hence less latency.
 - Verification and key management: Receivers verify message integrity and authenticity using the BN and smart contracts. Smart contracts dynamically update keys to prevent replay attacks and maintain privacy. 
 
 This integrated approach ensures secure and efficient communication while preserving vehicle privacy in the proposed system.
