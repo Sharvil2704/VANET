@@ -1,0 +1,32 @@
+## System Model
+
+  The proposed model  consists of four entities, i.e., Certificate Authorities (CA), Road Side Units (RSU), Vehicle and Private Blockchain Network (BN), which connect with each other via the communications (C2B, V2R, and V2V). Here, C2B refers to the communication between CA and blockchain nodes (e.g. RSUs) that CA publishes transactions into the blockchain, V2R refers to that vehicles can request transaction data from the blockchain maintained by nearby RSUs, and V2V refers to the communication among vehicles via DSRC protocol.
+
+- We employ IEEE 1609.x suite of standards for our DSRC communication
+    
+-  1609.2 for certificate management and secure V2R communication.
+    
+- 1609.4 defines mechanisms for fair and efficient channel access among multiple vehicles, preventing collisions and ensuring timely delivery of important V2V messages.
+    
+- 1609.3 can be used for warning messages to vehicles for collision avoidance and can also be used for better traffic management of vehicles by automatic toll collection and drivers can receive real time updates on congestion, lane closures and alternative routes.  
+
+• CA: The CA is a trusted entity with enough resources (including computation and storage) who is responsible for managing certificates of vehicles’ or RSUs’ public keys. These certificates are signed by CA and embedded into the transactions via the C2B communication. In addition, CA builds the relationships between the issued public keys and its transaction identity using the smart contract such that one can conveniently retrieve the goal certificates from the blockchain. In our model, CA is the only entity who can obtain the real identity of the vehicle (i.e. conditional anonymity) from the intercepted messages.
+• RSU and OBUs: The RSU is a roadside infrastructure which uses the DSRC protocol to communicate with OBUs. It also serves as a full node (i.e. storing all the transaction data of the blockchain) which provides the APIs for retrieving transactions and triggering the chained smart contract . Here we provide RESTful APIs for secure communication with the vehicles over https.
+- Vehicles in the proposed system are equipped with tamper-proof On-Board Units (OBUs) that:
+- Securely store private seeds: These seeds generate one-time private keys, efficiently avoiding storage of vast key sets.
+- Regularly broadcast traffic status: OBUs share traffic information with nearby vehicles and roadside units (RSUs) via DSRC protocol.
+- Interact through V2R and V2V communication: OBUs communicate with RSUs for transaction retrieval (V2R) and with other vehicles for information exchange (V2V).
+
+• BN: The Blockchain Network provides the immutable,undeniable, and verifiable data storage forming as so-called transactions which constitute a blockchain. Concretely, we embed public certificates into the transaction such that the vehicles can obtain the goal certificates from the blockchain instead of preloading all the certificates in the OBUs. Here, we propose using a private blockchain based on ethereum for high throughput and low latency for V2R and V2V communications and anyone can join in on the blockchain directly after registering themselves on the aforementioned service and become a part of it  .  RSUs can join in this network as a full node supporting services (including retrieving transactions and triggering the smart contract) for nearby vehicles.
+### Secure communication and message authentication are achieved through a robust registration and signing process
+
+Vehicle Registration:  
+- Pseudonym and ECC key pair generation: The vehicle generates a unique pseudonym and an Elliptic Curve Cryptography (ECC) key pair using a secure Pseudorandom Number Generator (PRNG).
+- Registration request submission: The vehicle securely submits the registration request to an RSU using IEEE 1609.2 security services over DSRC.
+- RSU verification and PN registration: The RSU verifies proof of vehicle ownership and initiates a registration smart contract on the Blockchain Network (BN). The BN registers the pseudonym and generates a session key, which is securely communicated back to the vehicle.  
+
+Message Signing and Verification:  
+- Signature creation: The vehicle signs messages using its pseudonym and session key, employing the efficient and secure BLS signature scheme. 
+- Verification and key management: Receivers verify message integrity and authenticity using the BN and smart contracts. Smart contracts dynamically update keys to prevent replay attacks and maintain privacy. 
+
+This integrated approach ensures secure and efficient communication while preserving vehicle privacy in the proposed system.
