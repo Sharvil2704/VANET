@@ -37,4 +37,11 @@ The protcols required are Car Registration, Block Creation, Join Platoon , Inner
   - figure 5.5
     
 2. Platoon Block Creation
-   --- adding right now---
+  
+  - In this the platoon leader randomly selects a platoon member who is not restricted by the CA and to generate a block and the vehicle generates the hash and sends the nonce and the block to platoon leader
+    
+  - If no issues are found with the block after successful verification by the platoon leader then this block is sent to the entire platoon along with the POW attached
+    
+  - If the block does not get verified by the platoon leader than the platoon leader randomly selects another vehicle and the transaction noting failure is created and sent to the platoon
+    
+  - Once a block is published, it can be used to show a vehicle’s trustworthiness when they try to join another platoon.
